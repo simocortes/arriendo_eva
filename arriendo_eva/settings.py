@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv() # Carga las variables de entorno del archivo .env
+
+# Asignando a la variables
+db_user = os.getenv('DB_USER')
+db_password = os.getenv('DB_PASSWORD')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'arriendo_m7',
 ]
 
 MIDDLEWARE = [
@@ -74,12 +82,16 @@ WSGI_APPLICATION = 'arriendo_eva.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+			'default': {
+				'ENGINE': 'django.db.backends.postgresql',
+				'NAME': 'arriendos_m7',
+				'USER': db_user,
+				'PASSWORD': db_password,
+				'HOST': 'localhost',
+				'PORT': '5432',
+			}
+		}
+		
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

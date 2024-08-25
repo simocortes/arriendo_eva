@@ -98,14 +98,15 @@ def cambio_password(request, password:str, password_repeat:str):
     request.user.set_password(password)
     request.user.save()
     #  messages.success(request, 'Contraseña actualizada exitosamente')
- #parte del hito2
+    
+ #parte del hito2, requerimiento 2
 def obtener_propiedades_comunas(filtro): # recibe nombre o descripción
     if filtro is None:  
         return Inmueble.objects.all().order_by('comuna') # Entrega un objeto, al poner .value() entrega un diccionario
     # Si llegamos, hay un filtro
     return Inmueble.objects.filter(Q(nombre__icontains=filtro) | Q(descripcion__icontains=filtro) ).order_by('comuna')  
 
-
+#parte del hito2, requerimiento 3 demostracion busqueda sql
 def obtener_propiedades_regiones(filtro):
     consulta = '''
     select I.nombre, I.descripcion, R.nombre as region from arriendo_m7_inmueble as I

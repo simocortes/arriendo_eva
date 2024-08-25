@@ -5,8 +5,9 @@ from arriendo_m7.services import obtener_propiedades_comunas
 # Este código crea un archivo de text si hay inmuebles que tiene en su nombre o en su descripción el filtro que se agrega
 # Uso: si quiero conocer inmuebles que contienen en su nombre o descripción el filtro, se consulta así:
 # En el terminal:
-# python manage.py consulta_comunas -f playa  
-# python manage.py consulta_comunas  
+# python manage.py consultar_inmuebles -f playa  
+# python manage.py consultar_inmuebles
+  
 
 class Command(BaseCommand):
     def add_arguments(self, parser):

@@ -108,17 +108,17 @@ def obtener_propiedades_comunas(filtro): # recibe nombre o descripción
 
 def obtener_propiedades_regiones(filtro):
     consulta = '''
-    select I.nombre, I.descripcion, R.nombre as region from main_inmueble as I
-    join main_comuna as C on I.comuna_id = C.cod
-    join main_region as R on C.region_id = R.cod
+    select I.nombre, I.descripcion, R.nombre as region from arriendo_m7_inmueble as I
+    join arriendo_m7_comuna as C on I.comuna_id = C.cod
+    join arriendo_m7_region as R on C.region_id = R.cod
     order by R.cod;
     '''
     if filtro is not None:
         filtro = filtro.lower()
         consulta = f'''
-        select I.nombre, I.descripcion, R.nombre as region from main_inmueble as I
-        join main_comuna as C on I.comuna_id = C.cod
-        join main_region as R on C.region_id = R.cod where lower(I.nombre) like '%{filtro}%' or lower(I.descripcion) like '%{filtro}%'
+        select I.nombre, I.descripcion, R.nombre as region from arriendo_m7_inmueble as I
+        join arriendo_m7_comuna as C on I.comuna_id = C.cod
+        join arriendo_m7_region as R on C.region_id = R.cod where lower(I.nombre) like '%{filtro}%' or lower(I.descripcion) like '%{filtro}%'
         order by R.cod;
         '''
     cursor = connection.cursor()

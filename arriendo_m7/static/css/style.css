@@ -1,3 +1,15 @@
 .img-m7_logo.jpg {
     width: 50px;
+    height: 50px;
+}
+.custom-navbar {
+    background-color: #ADD8E6; /* Celeste */
+}
+.form-container {
+    max-width: 500px;
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px;
+    background-color: #f8f9fa; /* Color de fondo ligero */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

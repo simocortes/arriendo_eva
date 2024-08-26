@@ -95,11 +95,12 @@ def editar_user_sin_password(rut:str, first_name:str, last_name:str, email:str, 
 def cambio_password(request, password:str, password_repeat:str):
     if password != password_repeat:
         messages.error(request, 'Las contraseñas no coinciden')
-        return
+        return False
     request.user.set_password(password)
     request.user.save()
     messages.success(request, 'Contraseña actualizada exitosamente')
-    
+    return True
+
  #parte del hito2, requerimiento 2
 def obtener_propiedades_comunas(filtro): # recibe nombre o descripción
     if filtro is None:  
